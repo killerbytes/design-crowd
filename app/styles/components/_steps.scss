@@ -1,0 +1,57 @@
+.steps{
+    margin-bottom: 35px;
+    font-size: 14px;
+    @include breakpoint(small only) {
+        margin-bottom: 25px;
+    }        
+    ul.list-steps{
+        @include breakpoint(medium down) {
+            margin: -5px auto;
+        }        
+        position: relative;
+        display: flex;
+        list-style-type: none;
+        margin: 0 -10%;
+        margin-top: -5px;
+        padding: 0;
+        li{
+            width: 33%;
+        }
+        .title{
+            line-height: 1;
+        }
+        .step-item{
+            margin: auto;
+        }
+        
+    }
+    .step-bar{
+        @include breakpoint(medium down) {
+            margin: auto 12%;
+        }        
+        background-color: $bg-color;
+        position: relative;
+        margin: 0 5%;
+        top: 13px;
+        .progress{
+            background-color: $steps-active-color;
+            margin: 0;
+            height: 5px;
+            width: 18%;
+        }
+    }
+    .step-count{
+        background-color: $bg-color;
+        width: 30px;
+        height: 30px;
+        border-radius: 100px;
+        line-height: 1.8;
+        margin: auto;
+        margin-bottom: 10px;
+        font-size: initial;
+        &.active{
+            background-color: $steps-active-color;
+            color: $white;
+        }
+    }
+}

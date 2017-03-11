@@ -1,0 +1,231 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+
+$bg-color: #F4F4F4;
+$boder-color: #CACACA;
+$body-text: #273438;
+$text-gray: #4A4A4A;
+$link-color: #1197EB;
+$footer-color: #93939B;
+$product-item-active: #EEE;
+$steps-active-color: #647C85;
+
+
+@import "settings";
+// bower:scss
+@import "bower_components/foundation-sites/scss/foundation.scss";
+// endbower
+
+@include foundation-everything;
+@import "components/steps";
+
+
+body{
+    font-family: 'Lato', sans-serif;
+    color: $body-text;
+}
+a{ color: $link-color; }
+
+header{
+    padding: 20px;
+}
+
+
+footer{
+    @extend .padding-v;
+    color: $footer-color;
+    font-size: 12px;
+    color: $footer-color;
+    p{
+        @extend .text-light;
+        margin: 0;
+    }
+    img{
+    }
+    @include breakpoint(medium down) {
+        text-align: center;
+    }        
+}
+
+.flex{
+    display: flex;
+}
+
+.padding-v{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.text-light{
+    font-weight: 300;
+}
+.bg-white{
+    background-color: $white;
+}
+.bordered{
+    border: 1px solid $boder-color;
+    border-radius: 3px;
+}
+
+.close-button{
+    background-image: url(../images/04-expanded-something-else-panel/close-icon.svg);
+    width: 8px;
+    height: 8px;
+}
+.sub-header-section{
+    @extend .bg-white;
+    @extend .text-center;
+    @extend .padding-v;
+    h1{
+        font-weight: bold;
+    }
+    
+    @include breakpoint(small only) {
+        padding-bottom: 25px;
+    }            
+}
+
+.products-section{
+    @extend .padding-v;
+    margin: auto;
+    @include breakpoint(medium down) {
+        width: 55%;
+    }        
+    @include breakpoint(small only) {
+        width: 80%;
+        padding-bottom: 35px;
+    }        
+}
+.product-item{
+    @extend .bordered;
+    @extend .bg-white;
+    text-align: center;
+    margin: 15px auto 10px;
+    padding: 50px 0;
+    img{
+        margin: auto;
+    }
+    .product-image{
+        display: flex;
+        height: 80px;
+        margin: auto;
+        margin-bottom: 20px;
+        img{
+            height: 100%;
+        }
+    }
+    &:hover{
+        box-shadow: 0 0 25px 0 rgba(0,0,0,.1);
+        transition: shadow 0.5s ease;
+    }
+    @include breakpoint(small only) {
+        margin: 15px auto 5px;
+    }        
+    .something-else-icon{
+        width: 80px;
+        height: 80px;
+    }
+    
+}
+
+.money-back-section{
+    @extend .bg-white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    display: flex;
+    .media-object{
+        margin: auto;
+        img{
+            width: 78px;
+        }
+        .media-content{
+            padding-top: 6px;
+        }
+
+    }
+    @include breakpoint(small only) {
+        text-align: center;
+        .media-object.stack-for-small{
+            img{
+                width: 40%;
+            }
+            .media-object-section:last-child{
+                padding-bottom: 0;
+            }
+        }
+    }        
+}
+
+.something-else-section{
+    display: none;
+    margin-bottom: 40px;
+    @include breakpoint(medium down) {
+        padding-left: $global-padding;
+        padding-right: $global-padding;
+    }        
+    @include breakpoint(small only) {
+        text-align: center;
+        .something-else-panel{
+            padding: 30px 0 35px;
+            .list-wrapper{
+                margin-left: 0;
+                margin-bottom: 40px;
+            }            
+            >.padding-v:last-child {
+                padding-bottom: 0;
+                .columns:last-child{
+                    .list-wrapper{
+                        margin-bottom: 0;
+                    }
+                }            
+            }
+
+        }
+    }        
+}
+.toggle-panel{
+    display: none;
+    &:checked~section.something-else-section{
+        display: block;
+    }
+    &:checked~section{
+        [for="something-else"] .product-item{
+            background: $product-item-active;
+        }
+    }
+}
+
+.something-else-panel{
+    @extend .bordered;
+    @extend .bg-white;
+    padding: 25px 0;
+    position: relative;
+    >.row{
+        @extend .padding-v;        
+    }
+    h2{
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    strong{
+        display: block;
+        font-weight: 700;
+        margin-bottom: 7px;
+    }
+    ul{
+        list-style-type: none;
+        margin: 0;
+        li a{
+            padding: .3rem 1rem;
+            display: block;
+        }
+    }
+    .list-wrapper{
+        margin-left: 5rem;
+        @include breakpoint(medium down) {
+            margin-left: 1rem;
+        }        
+        
+    }
+}
